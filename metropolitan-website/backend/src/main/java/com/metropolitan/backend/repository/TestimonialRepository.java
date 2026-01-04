@@ -18,9 +18,9 @@ public interface TestimonialRepository extends JpaRepository<Testimonial, Long> 
     long countByDivision(String division);
 
     @Query("SELECT t FROM Testimonial t WHERE " +
-            "(:division IS NULL OR t.division = :division) AND " +
-            "(:fromDate IS NULL OR t.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR t.createdAt <= :toDate)")
+            "(:#{#division == null} = true OR t.division = :division) AND " +
+            "(:#{#fromDate == null} = true OR t.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR t.createdAt <= :toDate)")
     Page<Testimonial> findWithFilters(
             @Param("division") String division,
             @Param("fromDate") LocalDateTime fromDate,
@@ -29,9 +29,9 @@ public interface TestimonialRepository extends JpaRepository<Testimonial, Long> 
     );
 
     @Query("SELECT COUNT(t) FROM Testimonial t WHERE " +
-            "(:division IS NULL OR t.division = :division) AND " +
-            "(:fromDate IS NULL OR t.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR t.createdAt <= :toDate)")
+            "(:#{#division == null} = true OR t.division = :division) AND " +
+            "(:#{#fromDate == null} = true OR t.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR t.createdAt <= :toDate)")
     long countWithFilters(
             @Param("division") String division,
             @Param("fromDate") LocalDateTime fromDate,

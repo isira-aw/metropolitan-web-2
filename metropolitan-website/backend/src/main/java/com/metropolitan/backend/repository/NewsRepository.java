@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public interface NewsRepository extends JpaRepository<News, Long> {
 
     @Query("SELECT n FROM News n WHERE " +
-            "(:fromDate IS NULL OR n.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR n.createdAt <= :toDate)")
+            "(:#{#fromDate == null} = true OR n.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR n.createdAt <= :toDate)")
     Page<News> findWithFilters(
             @Param("fromDate") LocalDateTime fromDate,
             @Param("toDate") LocalDateTime toDate,
@@ -23,8 +23,8 @@ public interface NewsRepository extends JpaRepository<News, Long> {
     );
 
     @Query("SELECT COUNT(n) FROM News n WHERE " +
-            "(:fromDate IS NULL OR n.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR n.createdAt <= :toDate)")
+            "(:#{#fromDate == null} = true OR n.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR n.createdAt <= :toDate)")
     long countWithFilters(
             @Param("fromDate") LocalDateTime fromDate,
             @Param("toDate") LocalDateTime toDate

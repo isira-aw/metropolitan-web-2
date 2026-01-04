@@ -16,9 +16,9 @@ public interface CaseStudyRepository extends JpaRepository<CaseStudy, Long> {
     long countByDivision(String division);
 
     @Query("SELECT c FROM CaseStudy c WHERE " +
-            "(:division IS NULL OR c.division = :division) AND " +
-            "(:fromDate IS NULL OR c.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR c.createdAt <= :toDate)")
+            "(:#{#division == null} = true OR c.division = :division) AND " +
+            "(:#{#fromDate == null} = true OR c.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR c.createdAt <= :toDate)")
     Page<CaseStudy> findWithFilters(
             @Param("division") String division,
             @Param("fromDate") LocalDateTime fromDate,
@@ -27,9 +27,9 @@ public interface CaseStudyRepository extends JpaRepository<CaseStudy, Long> {
     );
 
     @Query("SELECT COUNT(c) FROM CaseStudy c WHERE " +
-            "(:division IS NULL OR c.division = :division) AND " +
-            "(:fromDate IS NULL OR c.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR c.createdAt <= :toDate)")
+            "(:#{#division == null} = true OR c.division = :division) AND " +
+            "(:#{#fromDate == null} = true OR c.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR c.createdAt <= :toDate)")
     long countWithFilters(
             @Param("division") String division,
             @Param("fromDate") LocalDateTime fromDate,

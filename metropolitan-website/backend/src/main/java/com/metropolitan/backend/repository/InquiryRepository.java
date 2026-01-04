@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public interface InquiryRepository extends JpaRepository<Inquiry, Long> {
 
     @Query("SELECT i FROM Inquiry i WHERE " +
-            "(:fromDate IS NULL OR i.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR i.createdAt <= :toDate)")
+            "(:#{#fromDate == null} = true OR i.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR i.createdAt <= :toDate)")
     Page<Inquiry> findWithFilters(
             @Param("fromDate") LocalDateTime fromDate,
             @Param("toDate") LocalDateTime toDate,
@@ -23,8 +23,8 @@ public interface InquiryRepository extends JpaRepository<Inquiry, Long> {
     );
 
     @Query("SELECT COUNT(i) FROM Inquiry i WHERE " +
-            "(:fromDate IS NULL OR i.createdAt >= :fromDate) AND " +
-            "(:toDate IS NULL OR i.createdAt <= :toDate)")
+            "(:#{#fromDate == null} = true OR i.createdAt >= :fromDate) AND " +
+            "(:#{#toDate == null} = true OR i.createdAt <= :toDate)")
     long countWithFilters(
             @Param("fromDate") LocalDateTime fromDate,
             @Param("toDate") LocalDateTime toDate
