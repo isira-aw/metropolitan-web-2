@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -35,11 +36,48 @@ public class CaseStudyService {
         return PageResponse.of(caseStudyPage.getContent(), total, page, limit);
     }
 
+    public PageResponse<CaseStudy> getCaseStudiesWithFilters(
+            String division,
+            LocalDateTime fromDate,
+            LocalDateTime toDate,
+            int page,
+            int limit
+    ) {
+        Pageable pageable = PageRequest.of(page - 1, limit, Sort.by(Sort.Direction.DESC, "createdAt"));
+
+        Page<CaseStudy> caseStudyPage = caseStudyRepository.findWithFilters(division, fromDate, toDate, pageable);
+        long total = caseStudyRepository.countWithFilters(division, fromDate, toDate);
+
+        return PageResponse.of(caseStudyPage.getContent(), total, page, limit);
+    }
+
     public Optional<CaseStudy> getCaseStudy(Long id) {
         return caseStudyRepository.findById(id);
     }
 
     public CaseStudy createCaseStudy(CaseStudy caseStudy) {
         return caseStudyRepository.save(caseStudy);
+    }
+
+    public CaseStudy updateCaseStudy(Long id, CaseStudy caseStudyDetails) {
+        CaseStudy caseStudy = caseStudyRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Case Study not found with id: " + id));
+
+        caseStudy.setTitle(caseStudyDetails.getTitle());
+        caseStudy.setDescription(caseStudyDetails.getDescription());
+        caseStudy.setImage(caseStudyDetails.getImage());
+        caseStudy.setDivision(caseStudyDetails.getDivision());
+        caseStudy.setClient(caseStudyDetails.getClient());
+        caseStudy.setLocation(caseStudyDetails.getLocation());
+        caseStudy.setCompletionDate(caseStudyDetails.getCompletionDate());
+
+        return caseStudyRepository.save(caseStudy);
+    }
+
+    public void deleteCaseStudy(Long id) {
+        if (!caseStudyRepository.existsById(id)) {
+            throw new RuntimeException("Case Study not found with id: " + id);
+        }
+        caseStudyRepository.deleteById(id);
     }
 }
