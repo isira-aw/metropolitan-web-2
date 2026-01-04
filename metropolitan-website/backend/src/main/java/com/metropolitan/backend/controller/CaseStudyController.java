@@ -1,13 +1,12 @@
 package com.metropolitan.backend.controller;
 
+import com.metropolitan.backend.dto.ErrorResponse;
 import com.metropolitan.backend.dto.PageResponse;
 import com.metropolitan.backend.model.CaseStudy;
 import com.metropolitan.backend.service.CaseStudyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/case-studies")
@@ -28,10 +27,10 @@ public class CaseStudyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getCaseStudy(@PathVariable Long id) {
+    public ResponseEntity<Object> getCaseStudy(@PathVariable Long id) {
         return caseStudyService.getCaseStudy(id)
-                .map(ResponseEntity::ok)
+                .<ResponseEntity<Object>>map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(404)
-                        .body(Map.of("message", "Case Study not found")));
+                        .body(ErrorResponse.of("Case Study not found")));
     }
 }

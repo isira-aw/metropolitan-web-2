@@ -1,13 +1,12 @@
 package com.metropolitan.backend.controller;
 
+import com.metropolitan.backend.dto.ErrorResponse;
 import com.metropolitan.backend.dto.PageResponse;
 import com.metropolitan.backend.model.News;
 import com.metropolitan.backend.service.NewsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/news")
@@ -27,10 +26,10 @@ public class NewsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getNewsItem(@PathVariable Long id) {
+    public ResponseEntity<Object> getNewsItem(@PathVariable Long id) {
         return newsService.getNewsItem(id)
-                .map(ResponseEntity::ok)
+                .<ResponseEntity<Object>>map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(404)
-                        .body(Map.of("message", "News item not found")));
+                        .body(ErrorResponse.of("News item not found")));
     }
 }
