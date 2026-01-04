@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -32,7 +33,7 @@ public class News {
     private String summary;
 
     @Column
-    private LocalDateTime date;
+    private LocalDate date;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
@@ -41,7 +42,7 @@ public class News {
     @PrePersist
     protected void onCreate() {
         if (date == null) {
-            date = LocalDateTime.now();
+            date = LocalDate.now();
         }
     }
 }
