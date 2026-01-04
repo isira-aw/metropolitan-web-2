@@ -1,0 +1,54 @@
+# =====================================
+# FRONTEND (Vite / Node.js)
+# =====================================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env
+frontend/.env.*
+
+# Vite config backups
+frontend/vite.config.ts.*
+frontend/vite.config.js.*
+
+# =====================================
+# BACKEND (Spring Boot / Java)
+# =====================================
+backend/target/
+backend/build/
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# Logs
+backend/*.log
+
+# Spring Boot env files
+backend/.env
+backend/.env.*
+
+# =====================================
+# OS / SYSTEM FILES
+# =====================================
+.DS_Store
+Thumbs.db
+
+# =====================================
+# ARCHIVES
+# =====================================
+*.tar.gz
+*.zip
+
+# =====================================
+# IDE / EDITORS
+# =====================================
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# =====================================
+# GENERAL
+# =====================================
+*.log
