@@ -28,13 +28,13 @@ export default function DivisionsIntro() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
-      
-      <div className="pt-32 pb-24">
+              <div className="bg-secondary text-white pt-32 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <SectionHeader title="Our Divisions" subtitle="Three decades of engineering excellence." light />
+        </div>
+      </div>
+      <div className=" pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader 
-            title="Our Divisions" 
-            subtitle="Explore our specialized engineering and infrastructure solutions."
-          />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {DIVISIONS.map((div) => {

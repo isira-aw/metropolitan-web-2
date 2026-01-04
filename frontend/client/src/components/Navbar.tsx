@@ -69,7 +69,7 @@ export function Navbar() {
             <Link href="/divisions" className={cn(
                   "text-sm font-medium transition-all duration-200 hover:-translate-y-0.5",
                   location.startsWith("/divisions")
-                    ? "text-primary font-bold"
+                    ? "text-[20px] rounded-full px-6 font-bold active:translate-y-0"
                     : scrolled
                     ? "text-secondary hover:text-primary"
                     : "text-white/90 hover:text-white"
@@ -84,7 +84,7 @@ export function Navbar() {
                 className={cn(
                   "text-sm font-medium transition-all duration-200 hover:-translate-y-0.5",
                   location === item.href
-                    ? "text-primary font-bold"
+                    ? "text-[20px] rounded-full px-6 font-bold active:translate-y-0"
                     : scrolled
                     ? "text-secondary hover:text-primary"
                     : "text-white/90 hover:text-white"

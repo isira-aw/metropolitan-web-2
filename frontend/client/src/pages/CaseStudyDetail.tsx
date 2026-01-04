@@ -30,19 +30,6 @@ export default function CaseStudyDetail() {
         
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-16">
           <div className="max-w-7xl mx-auto">
-            <Link href="/case-studies">
-              <Button variant="link" className="text-white pl-0 mb-4 hover:text-primary">
-                <ArrowLeft className="mr-2 w-4 h-4" /> Back to Projects
-              </Button>
-            </Link>
-            <div className="flex flex-wrap gap-3 mb-4">
-              <Badge className="bg-primary text-white hover:bg-primary border-none text-sm py-1 px-3">{project.division}</Badge>
-              {project.completionDate && (
-                <Badge variant="outline" className="text-white border-white/30 bg-black/30 backdrop-blur-sm">
-                  <Calendar className="w-3 h-3 mr-1" /> {project.completionDate}
-                </Badge>
-              )}
-            </div>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">{project.title}</h1>
             {project.location && (
               <p className="text-xl text-white/80 flex items-center">
@@ -54,6 +41,19 @@ export default function CaseStudyDetail() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                    <div className="flex flex-wrap gap-3 mb-4">
+              <Badge className="bg-primary text-white hover:bg-primary border-none text-sm py-1 px-3">{project.division}</Badge>
+              {project.completionDate && (
+                <Badge variant="outline" className="text-white border-white/30 bg-black/30 backdrop-blur-sm">
+                  <Calendar className="w-3 h-3 mr-1" /> {project.completionDate}
+                </Badge>
+              )}
+            </div>
+            <Link href="/case-studies">
+              <Button variant="ghost" className="text-blue pl-0 mb-4 hover:text-primary">
+                <ArrowLeft className="mr-2 w-4 h-4" /> Back to Projects
+              </Button>
+            </Link>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           {/* Main Content */}
           <div className="lg:col-span-2">
