@@ -83,7 +83,7 @@ export default function Home() {
                 Our vision is to build infrastructure that not only meets the needs of today but anticipates the challenges of tomorrow, fostering communities that are resilient, connected, and vibrant.
               </p>
               <Link href="/about">
-                <Button variant="link" className="p-0 text-primary font-bold text-lg h-auto">
+                <Button variant="ghost" className="p-0 text-primary font-bold text-lg h-auto">
                   Learn More About Us <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -131,38 +131,6 @@ export default function Home() {
                 </div>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LATEST PROJECTS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-end mb-12">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-secondary mb-4">Featured Projects</h2>
-              <p className="text-muted-foreground text-lg">Highlighting our recent contributions to the urban landscape.</p>
-            </div>
-            <Link href="/case-studies" className="hidden md:flex items-center text-primary font-bold hover:underline">
-              View All Projects <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {latestProjects?.data?.map((project) => (
-              <CaseStudyCard key={project.id} item={project} />
-            )) || (
-              // Loading skeletons
-              Array(3).fill(0).map((_, i) => (
-                 <div key={i} className="h-[400px] bg-muted animate-pulse rounded-2xl" />
-              ))
-            )}
-          </div>
-
-          <div className="mt-8 text-center md:hidden">
-             <Link href="/case-studies">
-              <Button variant="outline" className="w-full">View All Projects</Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -227,6 +195,38 @@ export default function Home() {
             <div>
               <InquiryForm />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LATEST PROJECTS */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-end mb-12">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-secondary mb-4">Featured Projects</h2>
+              <p className="text-muted-foreground text-lg">Highlighting our recent contributions to the urban landscape.</p>
+            </div>
+            <Link href="/case-studies" className="hidden md:flex items-center text-primary font-bold hover:underline">
+              View All Projects <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {latestProjects?.data?.map((project) => (
+              <CaseStudyCard key={project.id} item={project} />
+            )) || (
+              // Loading skeletons
+              Array(3).fill(0).map((_, i) => (
+                 <div key={i} className="h-[400px] bg-muted animate-pulse rounded-2xl" />
+              ))
+            )}
+          </div>
+
+          <div className="mt-8 text-center md:hidden">
+             <Link href="/case-studies">
+              <Button variant="outline" className="w-full">View All Projects</Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -20,8 +20,8 @@ export default function NewsDetail() {
 
       <div className="bg-secondary text-white pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="bg-primary mb-6 hover:bg-primary border-none">Press Release</Badge>
-          <h1 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">{news.title}</h1>
+          {/* <Badge className="bg-primary mb-6 hover:bg-primary border-none">Press Release</Badge> */}
+          <h1 className=" text-white  text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">{news.title}</h1>
           <div className="flex items-center justify-center gap-6 text-white/70">
             <span className="flex items-center"><Calendar className="w-4 h-4 mr-2" /> {news.date ? format(new Date(news.date), 'MMMM d, yyyy') : ''}</span>
             <span className="flex items-center"><User className="w-4 h-4 mr-2" /> Metropolitan Comms</span>

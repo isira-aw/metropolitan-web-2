@@ -95,6 +95,10 @@ export default function Solar() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
 
+      <div className="bg-secondary text-white pt-2 pb-20">
+
+      </div>
+
       {/* HERO - Bright & Green Theme */}
       <section className="relative bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-20">

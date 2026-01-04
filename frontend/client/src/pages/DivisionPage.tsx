@@ -21,7 +21,7 @@ const DIVISION_DATA: Record<string, {
   "central ac": {
     title: "Central AC",
     desc: "Providing advanced climate control solutions for large-scale commercial and industrial spaces.",
-    image: "https://images.unsplash.com/photo-1558444479-c8498174f680?q=80&w=2070&auto=format&fit=crop",
+    image: "https://tse3.mm.bing.net/th/id/OIP.5M8l_SianRfJk98U-IqBFQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
     services: ["Chiller Systems", "VRV/VRF Installation", "Ducting & Ventilation", "Maintenance Contracts"]
   },
   "elevators and travelators": {

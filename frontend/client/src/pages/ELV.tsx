@@ -105,6 +105,10 @@ export default function ELV() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
 
+      <div className="bg-secondary text-white pt-2 pb-20">
+
+      </div>
+
       {/* HERO - Tech-focused Design */}
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-20">

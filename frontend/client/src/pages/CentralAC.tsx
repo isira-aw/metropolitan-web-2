@@ -62,6 +62,10 @@ export default function CentralAC() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
 
+      <div className="bg-secondary text-white pt-2 pb-20">
+
+      </div>
+
       {/* HERO - Dual Column Layout */}
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -94,7 +98,7 @@ export default function CentralAC() {
 
             <div className="relative animate-in slide-in-from-right-10 fade-in duration-700">
               <img
-                src="https://images.unsplash.com/photo-1558444479-c8498174f680?q=80&w=2070&auto=format&fit=crop"
+                src="https://tse3.mm.bing.net/th/id/OIP.5M8l_SianRfJk98U-IqBFQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
                 alt="Central AC System"
                 className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
               />
@@ -171,7 +175,7 @@ export default function CentralAC() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-display font-bold mb-6">
+              <h2 className="text-white text-4xl font-display font-bold mb-6">
                 Why Choose Our Central AC Solutions?
               </h2>
               <div className="space-y-4">

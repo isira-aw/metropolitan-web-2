@@ -95,6 +95,10 @@ export default function Generator() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
 
+      <div className="bg-secondary text-white pt-2 pb-20">
+
+      </div>
+      
       {/* HERO - Dark Theme with Stats Overlay */}
       <section className="relative h-[75vh] min-h-[650px] flex items-center overflow-hidden">
         <div

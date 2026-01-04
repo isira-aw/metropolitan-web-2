@@ -69,17 +69,21 @@ export default function Elevators() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
 
+      <div className="bg-secondary text-white pt-2 pb-20">
+
+      </div>
+
       {/* HERO - Full Width with Overlay Stats */}
       <section className="relative h-[70vh] min-h-[600px] flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1516733968668-dbdce39c46ef?q=80&w=2070&auto=format&fit=crop')` }}
+          style={{ backgroundImage: `url('https://static.vecteezy.com/system/resources/previews/041/449/599/non_2x/ai-generated-elevator-escalator-is-moving-staircase-used-as-transportation-between-floors-or-levels-building-professionalgraphy-photo.jpg')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="max-w-2xl animate-in slide-in-from-left-10 fade-in duration-700">
-            <Badge className="mb-4 bg-primary/20 text-primary hover:bg-primary/30 border-primary/30">
+            <Badge className="mb-4 bg-primary/20 text-white hover:bg-primary/30 border-primary/30">
               <ArrowUp className="w-3 h-3 mr-1" />
               Vertical Transportation Experts
             </Badge>
@@ -171,7 +175,7 @@ export default function Elevators() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <Award className="w-16 h-16 text-primary mx-auto mb-4" />
-            <h2 className="text-4xl font-display font-bold mb-4">Safety is Our Priority</h2>
+            <h2 className="text-white text-4xl font-display font-bold mb-4">Safety is Our Priority</h2>
             <p className="text-white/80 text-lg max-w-2xl mx-auto">
               Every elevator and escalator we install meets the highest international safety standards
             </p>

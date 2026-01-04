@@ -75,6 +75,10 @@ export default function FireProtection() {
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
 
+      <div className="bg-secondary text-white pt-2 pb-20">
+
+      </div>
+
       {/* HERO - Split with Emergency Banner */}
       <section className="relative">
         {/* Emergency Banner */}
@@ -114,7 +118,7 @@ export default function FireProtection() {
 
               <div className="relative animate-in slide-in-from-right-10 fade-in duration-700">
                 <img
-                  src="https://images.unsplash.com/photo-1581094288338-2314dddb7ec4?q=80&w=2070&auto=format&fit=crop"
+                  src="https://tse3.mm.bing.net/th/id/OIP.rE9gqmAhPfHXfo137zM1GwHaHa?w=626&h=626&rs=1&pid=ImgDetMain&o=7&rm=3"
                   alt="Fire Protection System"
                   className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
                 />

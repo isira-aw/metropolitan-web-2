@@ -28,20 +28,20 @@ export default function DivisionsIntro() {
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navbar />
-              <div className="bg-secondary text-white pt-32 pb-20">
+      <div className="bg-secondary text-white pt-32 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionHeader title="Our Divisions" subtitle="Three decades of engineering excellence." light />
         </div>
       </div>
       <div className=" pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {DIVISIONS.map((div) => {
               const Icon = DIVISION_ICONS[div] || Building2;
               const summary = DIVISION_SUMMARIES[div] || "Expert solutions for metropolitan infrastructure.";
               const path = `/divisions/${div.toLowerCase().replace(/\s+/g, '-')}`;
-              
+
               return (
                 <Link key={div} href={path}>
                   <Card className="group hover-elevate cursor-pointer overflow-hidden border-border/50 transition-all hover:border-primary/50">
