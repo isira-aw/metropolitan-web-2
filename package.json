@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "mock-api": "node mock-api-server.js"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+}
