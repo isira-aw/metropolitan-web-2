@@ -57,7 +57,7 @@ export default function Careers() {
             <h2 className="text-3xl font-display font-bold text-secondary mb-8">Open Positions</h2>
             <div className="space-y-6">
               {JOBS.map((job, i) => (
-                <Card key={i} className="hover:shadow-lg transition-all cursor-pointer border-l-4 border-l-transparent hover:border-l-primary">
+                <Card key={i} className="hover:shadow-lg transition-all cursor-pointer border-l-4  shadow-2xl   hover:border-l-primary">
                   <CardContent className="p-6">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-bold text-secondary">{job.title}</h3>

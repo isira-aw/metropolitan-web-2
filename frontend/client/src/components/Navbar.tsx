@@ -60,7 +60,7 @@ export function Navbar() {
               "font-display font-bold text-2xl tracking-tight transition-colors",
               scrolled ? "text-secondary" : "text-white"
             )}>
-              METRO<span className="text-primary">POLITAN</span>
+              METROPOLITAN
             </span>
           </Link>
 
