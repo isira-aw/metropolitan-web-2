@@ -8,9 +8,21 @@ import { InquiryForm } from "@/components/InquiryForm";
 import { Button } from "@/components/ui/button";
 import { useCaseStudies } from "@/hooks/use-case-studies";
 import { Card } from "@/components/ui/card";
+import { type Testimonial } from "@shared/schema";
+import { useQuery } from "@tanstack/react-query";
+import { Quote } from "lucide-react";
 
 export default function Home() {
   const { data: latestProjects } = useCaseStudies({ limit: 3 });
+
+  const { data: testimonialsData } = useQuery<Testimonial[]>({
+    queryKey: ["/api/testimonials"],
+    queryFn: async () => {
+      const res = await fetch(`/api/testimonials?limit=6`);
+      if (!res.ok) throw new Error("Failed to fetch testimonials");
+      return res.json();
+    }
+  });
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground overflow-x-hidden">
@@ -146,7 +158,7 @@ export default function Home() {
               ))
             )}
           </div>
-          
+
           <div className="mt-8 text-center md:hidden">
              <Link href="/case-studies">
               <Button variant="outline" className="w-full">View All Projects</Button>
@@ -154,6 +166,39 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      {testimonialsData && testimonialsData.length > 0 && (
+        <section className="py-24 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              title="What Our Clients Say"
+              subtitle="Trusted by industry leaders across multiple sectors"
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+              {testimonialsData.slice(0, 6).map((testimonial) => (
+                <Card key={testimonial.id} className="border-none shadow-lg hover:shadow-xl transition-all">
+                  <div className="p-8">
+                    <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                    <p className="text-muted-foreground italic mb-6 leading-relaxed">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="flex items-center gap-3 pt-4 border-t">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                        {testimonial.author[0]}
+                      </div>
+                      <div>
+                        <p className="font-bold text-secondary">{testimonial.author}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* INQUIRY SECTION */}
       <section className="py-24 bg-secondary relative overflow-hidden">
